@@ -44,7 +44,7 @@ python -u train.py ETTm1 forecast_univar --alpha 0.0005 --kernels 1 2 4 8 16 32 
 
 ## 性能
 
-**由于PaddlePaddle不支持[复数参数](https://github.com/PaddlePaddle/Paddle/issues/45020)，因此复现过程中无法完全复现论文中的季节特征分离（SFD）模块，只能用实数参数替代，目前性能无法达到最终要求。**此模块首先使用傅里叶变换从时域转换到频谱域（复数），然后通过逐元素线性层（per-element linear layer）来实现，在每个频率上进行仿射变换。
+**由于PaddlePaddle不支持[复数参数](https://github.com/PaddlePaddle/Paddle/issues/45020)，因此复现过程中无法完全复现论文中的季节特征分离（SFD）模块，只能用实数参数替代，目前性能无法达到最终要求**。此模块首先使用傅里叶变换从时域转换到频谱域（复数），然后通过逐元素线性层（per-element linear layer）来实现，在每个频率上进行仿射变换。
 
 torch实现代码：
 
