@@ -1,0 +1,740 @@
+Dataset: ETTm1
+Arguments: Namespace(alpha=0.0005, archive='forecast_csv', batch_size=128, dataset='ETTm1', epochs=None, eval=True, gpu=3, iters=None, kernels=[1, 2, 4, 8, 16, 32, 64, 128], lr=0.001, max_threads=8, max_train_length=201, repr_dims=320, run_name='forecast_multivar', save_every=None, seed=0)
+input_fc.weight	[14, 64]	Place(gpu:3)
+input_fc.bias	[64]	Place(gpu:3)
+feature_extractor.net.0.conv1.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.0.conv1.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.0.conv2.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.0.conv2.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.1.conv1.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.1.conv1.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.1.conv2.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.1.conv2.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.2.conv1.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.2.conv1.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.2.conv2.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.2.conv2.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.3.conv1.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.3.conv1.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.3.conv2.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.3.conv2.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.4.conv1.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.4.conv1.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.4.conv2.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.4.conv2.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.5.conv1.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.5.conv1.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.5.conv2.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.5.conv2.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.6.conv1.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.6.conv1.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.6.conv2.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.6.conv2.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.7.conv1.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.7.conv1.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.7.conv2.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.7.conv2.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.8.conv1.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.8.conv1.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.8.conv2.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.8.conv2.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.9.conv1.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.9.conv1.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.9.conv2.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.9.conv2.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.10.conv1.conv.weight	[320, 64, 3]	Place(gpu:3)
+feature_extractor.net.10.conv1.conv.bias	[320]	Place(gpu:3)
+feature_extractor.net.10.conv2.conv.weight	[320, 320, 3]	Place(gpu:3)
+feature_extractor.net.10.conv2.conv.bias	[320]	Place(gpu:3)
+feature_extractor.net.10.projector.weight	[320, 64, 1]	Place(gpu:3)
+feature_extractor.net.10.projector.bias	[320]	Place(gpu:3)
+tfd.0.weight	[160, 320, 1]	Place(gpu:3)
+tfd.0.bias	[160]	Place(gpu:3)
+tfd.1.weight	[160, 320, 2]	Place(gpu:3)
+tfd.1.bias	[160]	Place(gpu:3)
+tfd.2.weight	[160, 320, 4]	Place(gpu:3)
+tfd.2.bias	[160]	Place(gpu:3)
+tfd.3.weight	[160, 320, 8]	Place(gpu:3)
+tfd.3.bias	[160]	Place(gpu:3)
+tfd.4.weight	[160, 320, 16]	Place(gpu:3)
+tfd.4.bias	[160]	Place(gpu:3)
+tfd.5.weight	[160, 320, 32]	Place(gpu:3)
+tfd.5.bias	[160]	Place(gpu:3)
+tfd.6.weight	[160, 320, 64]	Place(gpu:3)
+tfd.6.bias	[160]	Place(gpu:3)
+tfd.7.weight	[160, 320, 128]	Place(gpu:3)
+tfd.7.bias	[160]	Place(gpu:3)
+sfd.0.weight	[101, 320, 160]	Place(gpu:3)
+sfd.0.bias	[101, 160]	Place(gpu:3)
+---------------------------------------------------------------
+input_fc.weight	[14, 64]	Place(gpu:3)
+input_fc.bias	[64]	Place(gpu:3)
+feature_extractor.net.0.conv1.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.0.conv1.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.0.conv2.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.0.conv2.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.1.conv1.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.1.conv1.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.1.conv2.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.1.conv2.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.2.conv1.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.2.conv1.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.2.conv2.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.2.conv2.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.3.conv1.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.3.conv1.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.3.conv2.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.3.conv2.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.4.conv1.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.4.conv1.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.4.conv2.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.4.conv2.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.5.conv1.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.5.conv1.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.5.conv2.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.5.conv2.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.6.conv1.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.6.conv1.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.6.conv2.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.6.conv2.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.7.conv1.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.7.conv1.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.7.conv2.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.7.conv2.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.8.conv1.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.8.conv1.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.8.conv2.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.8.conv2.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.9.conv1.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.9.conv1.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.9.conv2.conv.weight	[64, 64, 3]	Place(gpu:3)
+feature_extractor.net.9.conv2.conv.bias	[64]	Place(gpu:3)
+feature_extractor.net.10.conv1.conv.weight	[320, 64, 3]	Place(gpu:3)
+feature_extractor.net.10.conv1.conv.bias	[320]	Place(gpu:3)
+feature_extractor.net.10.conv2.conv.weight	[320, 320, 3]	Place(gpu:3)
+feature_extractor.net.10.conv2.conv.bias	[320]	Place(gpu:3)
+feature_extractor.net.10.projector.weight	[320, 64, 1]	Place(gpu:3)
+feature_extractor.net.10.projector.bias	[320]	Place(gpu:3)
+tfd.0.weight	[160, 320, 1]	Place(gpu:3)
+tfd.0.bias	[160]	Place(gpu:3)
+tfd.1.weight	[160, 320, 2]	Place(gpu:3)
+tfd.1.bias	[160]	Place(gpu:3)
+tfd.2.weight	[160, 320, 4]	Place(gpu:3)
+tfd.2.bias	[160]	Place(gpu:3)
+tfd.3.weight	[160, 320, 8]	Place(gpu:3)
+tfd.3.bias	[160]	Place(gpu:3)
+tfd.4.weight	[160, 320, 16]	Place(gpu:3)
+tfd.4.bias	[160]	Place(gpu:3)
+tfd.5.weight	[160, 320, 32]	Place(gpu:3)
+tfd.5.bias	[160]	Place(gpu:3)
+tfd.6.weight	[160, 320, 64]	Place(gpu:3)
+tfd.6.bias	[160]	Place(gpu:3)
+tfd.7.weight	[160, 320, 128]	Place(gpu:3)
+tfd.7.bias	[160]	Place(gpu:3)
+sfd.0.weight	[101, 320, 160]	Place(gpu:3)
+sfd.0.bias	[101, 160]	Place(gpu:3)
+Epoch #0: loss=0.09022446721792221
+Epoch #1: loss=1.8128433227539062
+Epoch #2: loss=2.979405403137207
+Epoch #3: loss=2.684849739074707
+Epoch #4: loss=4.335355758666992
+Epoch #5: loss=4.203245162963867
+Epoch #6: loss=1.5301530361175537
+Epoch #7: loss=3.368607997894287
+Epoch #8: loss=3.0959463119506836
+Epoch #9: loss=2.4425957202911377
+Epoch #10: loss=1.7395049333572388
+Epoch #11: loss=2.0553531646728516
+Epoch #12: loss=2.2984421253204346
+Epoch #13: loss=3.3299684524536133
+Epoch #14: loss=2.947747230529785
+Epoch #15: loss=3.5361502170562744
+Epoch #16: loss=3.1859514713287354
+Epoch #17: loss=2.1008901596069336
+Epoch #18: loss=2.134007215499878
+Epoch #19: loss=1.1423084735870361
+Epoch #20: loss=4.380046367645264
+Epoch #21: loss=3.9614739418029785
+Epoch #22: loss=0.8478495478630066
+Epoch #23: loss=3.3364315032958984
+Epoch #24: loss=4.278965950012207
+Epoch #25: loss=3.5387301445007324
+Epoch #26: loss=2.942970037460327
+Epoch #27: loss=1.973340630531311
+Epoch #28: loss=1.333044409751892
+Epoch #29: loss=3.1203863620758057
+Epoch #30: loss=3.377959728240967
+Epoch #31: loss=3.848806381225586
+Epoch #32: loss=2.8182668685913086
+Epoch #33: loss=2.5886332988739014
+Epoch #34: loss=3.479292631149292
+Epoch #35: loss=2.775783061981201
+Epoch #36: loss=2.6152408123016357
+Epoch #37: loss=2.477395534515381
+Epoch #38: loss=0.8332949280738831
+Epoch #39: loss=2.505154609680176
+Epoch #40: loss=1.6539355516433716
+Epoch #41: loss=2.315061330795288
+Epoch #42: loss=2.108466148376465
+Epoch #43: loss=3.067106008529663
+Epoch #44: loss=3.5429117679595947
+Epoch #45: loss=1.9784164428710938
+Epoch #46: loss=2.2764320373535156
+Epoch #47: loss=2.7480101585388184
+Epoch #48: loss=3.0538430213928223
+Epoch #49: loss=0.34316667914390564
+Epoch #50: loss=3.660801887512207
+Epoch #51: loss=3.736459255218506
+Epoch #52: loss=1.5428621768951416
+Epoch #53: loss=2.46474289894104
+Epoch #54: loss=1.5529696941375732
+Epoch #55: loss=3.17323899269104
+Epoch #56: loss=1.246822714805603
+Epoch #57: loss=0.6369181275367737
+Epoch #58: loss=2.5552351474761963
+Epoch #59: loss=3.407172679901123
+Epoch #60: loss=3.2394416332244873
+Epoch #61: loss=2.241766929626465
+Epoch #62: loss=2.527127742767334
+Epoch #63: loss=2.9979498386383057
+Epoch #64: loss=1.4339452981948853
+Epoch #65: loss=2.075211763381958
+Epoch #66: loss=1.4936647415161133
+Epoch #67: loss=2.095689535140991
+Epoch #68: loss=2.3618485927581787
+Epoch #69: loss=2.5446879863739014
+Epoch #70: loss=1.9968349933624268
+Epoch #71: loss=2.4665608406066895
+Epoch #72: loss=1.987388014793396
+Epoch #73: loss=3.1273043155670166
+Epoch #74: loss=2.8305461406707764
+Epoch #75: loss=3.114335060119629
+Epoch #76: loss=0.48651933670043945
+Epoch #77: loss=2.5231425762176514
+Epoch #78: loss=1.0433655977249146
+Epoch #79: loss=1.0121352672576904
+Epoch #80: loss=0.3995959460735321
+Epoch #81: loss=2.0275378227233887
+Epoch #82: loss=2.98081111907959
+Epoch #83: loss=0.5295138359069824
+Epoch #84: loss=1.7582505941390991
+Epoch #85: loss=2.520845413208008
+Epoch #86: loss=1.0835102796554565
+Epoch #87: loss=0.9718925356864929
+Epoch #88: loss=2.5839476585388184
+Epoch #89: loss=1.5482348203659058
+Epoch #90: loss=0.6164575815200806
+Epoch #91: loss=2.9535610675811768
+Epoch #92: loss=0.5179809331893921
+Epoch #93: loss=1.9353455305099487
+Epoch #94: loss=3.019829273223877
+Epoch #95: loss=2.755976676940918
+Epoch #96: loss=2.5688164234161377
+Epoch #97: loss=0.7227597832679749
+Epoch #98: loss=1.0604395866394043
+Epoch #99: loss=0.3419479727745056
+Epoch #100: loss=2.37980318069458
+Epoch #101: loss=3.0159523487091064
+Epoch #102: loss=2.1507155895233154
+Epoch #103: loss=0.5159746408462524
+Epoch #104: loss=1.8668943643569946
+Epoch #105: loss=1.9049299955368042
+Epoch #106: loss=2.181912899017334
+Epoch #107: loss=1.2095993757247925
+Epoch #108: loss=0.5776826739311218
+Epoch #109: loss=2.764256000518799
+Epoch #110: loss=3.4870214462280273
+Epoch #111: loss=1.768632173538208
+Epoch #112: loss=2.6531014442443848
+Epoch #113: loss=0.7275810837745667
+Epoch #114: loss=1.7445939779281616
+Epoch #115: loss=0.26146817207336426
+Epoch #116: loss=2.0295698642730713
+Epoch #117: loss=1.9231117963790894
+Epoch #118: loss=2.6912527084350586
+Epoch #119: loss=2.322371244430542
+Epoch #120: loss=1.2442821264266968
+Epoch #121: loss=2.2066028118133545
+Epoch #122: loss=2.584216594696045
+Epoch #123: loss=2.567318916320801
+Epoch #124: loss=0.7445845603942871
+Epoch #125: loss=1.380973219871521
+Epoch #126: loss=2.479566812515259
+Epoch #127: loss=2.6028659343719482
+Epoch #128: loss=2.5187113285064697
+Epoch #129: loss=0.8586676120758057
+Epoch #130: loss=2.473247766494751
+Epoch #131: loss=1.8823786973953247
+Epoch #132: loss=0.39850425720214844
+Epoch #133: loss=1.0465587377548218
+Epoch #134: loss=2.122286081314087
+Epoch #135: loss=0.2856556475162506
+Epoch #136: loss=2.0615248680114746
+Epoch #137: loss=1.9907474517822266
+Epoch #138: loss=1.378583312034607
+Epoch #139: loss=2.4293127059936523
+Epoch #140: loss=1.9237927198410034
+Epoch #141: loss=2.080033779144287
+Epoch #142: loss=2.0099382400512695
+Epoch #143: loss=0.3520234525203705
+Epoch #144: loss=1.7494139671325684
+Epoch #145: loss=1.9324887990951538
+Epoch #146: loss=2.221709966659546
+Epoch #147: loss=1.7667678594589233
+Epoch #148: loss=2.6250479221343994
+Epoch #149: loss=2.4328670501708984
+Epoch #150: loss=0.33674681186676025
+Epoch #151: loss=0.7789074778556824
+Epoch #152: loss=3.3246984481811523
+Epoch #153: loss=1.5845880508422852
+Epoch #154: loss=1.9766069650650024
+Epoch #155: loss=3.2420523166656494
+Epoch #156: loss=0.0869549810886383
+Epoch #157: loss=1.3078608512878418
+Epoch #158: loss=1.2111494541168213
+Epoch #159: loss=2.0982449054718018
+Epoch #160: loss=2.980368137359619
+Epoch #161: loss=0.3376862704753876
+Epoch #162: loss=2.414369821548462
+Epoch #163: loss=2.598381519317627
+Epoch #164: loss=0.6578964591026306
+Epoch #165: loss=1.8034087419509888
+Epoch #166: loss=1.2945502996444702
+Epoch #167: loss=2.2638120651245117
+Epoch #168: loss=1.3327562808990479
+Epoch #169: loss=1.1381713151931763
+Epoch #170: loss=2.4813003540039062
+Epoch #171: loss=1.8818386793136597
+Epoch #172: loss=0.3774280846118927
+Epoch #173: loss=2.341648817062378
+Epoch #174: loss=1.3331583738327026
+Epoch #175: loss=2.276423692703247
+Epoch #176: loss=0.7346577644348145
+Epoch #177: loss=1.9240899085998535
+Epoch #178: loss=0.08720043301582336
+Epoch #179: loss=1.4423989057540894
+Epoch #180: loss=2.4320619106292725
+Epoch #181: loss=1.1030163764953613
+Epoch #182: loss=1.027725338935852
+Epoch #183: loss=0.4626063108444214
+Epoch #184: loss=0.772513210773468
+Epoch #185: loss=1.6003421545028687
+Epoch #186: loss=3.0515427589416504
+Epoch #187: loss=0.7031828165054321
+Epoch #188: loss=1.0963513851165771
+Epoch #189: loss=2.4300923347473145
+Epoch #190: loss=1.2702021598815918
+Epoch #191: loss=1.9552055597305298
+Epoch #192: loss=1.9620070457458496
+Epoch #193: loss=2.6867728233337402
+Epoch #194: loss=0.44933632016181946
+Epoch #195: loss=1.62076997756958
+Epoch #196: loss=1.5479379892349243
+Epoch #197: loss=1.088777780532837
+Epoch #198: loss=0.23870550096035004
+Epoch #199: loss=2.336945056915283
+Epoch #200: loss=1.2904671430587769
+Epoch #201: loss=2.250516414642334
+Epoch #202: loss=2.5431039333343506
+Epoch #203: loss=0.5510897636413574
+Epoch #204: loss=2.1192421913146973
+Epoch #205: loss=2.9898598194122314
+Epoch #206: loss=2.013070583343506
+Epoch #207: loss=0.6518622636795044
+Epoch #208: loss=1.783505916595459
+Epoch #209: loss=1.4198936223983765
+Epoch #210: loss=0.812105655670166
+Epoch #211: loss=1.9377561807632446
+Epoch #212: loss=2.0156431198120117
+Epoch #213: loss=1.0592501163482666
+Epoch #214: loss=1.75301194190979
+Epoch #215: loss=1.56075119972229
+Epoch #216: loss=1.9252262115478516
+Epoch #217: loss=1.5826079845428467
+Epoch #218: loss=1.2690190076828003
+Epoch #219: loss=0.5055297613143921
+Epoch #220: loss=1.8862143754959106
+Epoch #221: loss=2.1415348052978516
+Epoch #222: loss=1.3966118097305298
+Epoch #223: loss=1.6988475322723389
+Epoch #224: loss=0.2438901662826538
+Epoch #225: loss=0.6970728635787964
+Epoch #226: loss=0.519908607006073
+Epoch #227: loss=1.7764501571655273
+Epoch #228: loss=2.515108823776245
+Epoch #229: loss=0.41231846809387207
+Epoch #230: loss=1.9090708494186401
+Epoch #231: loss=0.7304394245147705
+Epoch #232: loss=2.2076730728149414
+Epoch #233: loss=1.5443024635314941
+Epoch #234: loss=2.099001407623291
+Epoch #235: loss=0.42219480872154236
+Epoch #236: loss=1.1705833673477173
+Epoch #237: loss=0.7859746813774109
+Epoch #238: loss=2.3564794063568115
+Epoch #239: loss=0.15019020438194275
+Epoch #240: loss=2.130035638809204
+Epoch #241: loss=2.215224027633667
+Epoch #242: loss=0.742382824420929
+Epoch #243: loss=0.8792001605033875
+Epoch #244: loss=1.7361711263656616
+Epoch #245: loss=0.5480350255966187
+Epoch #246: loss=1.282729148864746
+Epoch #247: loss=1.0241332054138184
+Epoch #248: loss=2.074568748474121
+Epoch #249: loss=1.236297369003296
+Epoch #250: loss=2.451127767562866
+Epoch #251: loss=1.8592844009399414
+Epoch #252: loss=2.674455404281616
+Epoch #253: loss=0.07463526725769043
+Epoch #254: loss=0.9547951221466064
+Epoch #255: loss=1.0435433387756348
+Epoch #256: loss=1.1116255521774292
+Epoch #257: loss=2.0282793045043945
+Epoch #258: loss=0.8172103762626648
+Epoch #259: loss=0.38115447759628296
+Epoch #260: loss=1.080762505531311
+Epoch #261: loss=2.2843198776245117
+Epoch #262: loss=1.403916835784912
+Epoch #263: loss=1.9505045413970947
+Epoch #264: loss=0.40205758810043335
+Epoch #265: loss=1.9520992040634155
+Epoch #266: loss=0.9955517649650574
+Epoch #267: loss=0.13239786028862
+Epoch #268: loss=0.3159927725791931
+Epoch #269: loss=1.1782200336456299
+Epoch #270: loss=1.8933885097503662
+Epoch #271: loss=2.7393898963928223
+Epoch #272: loss=0.277812123298645
+Epoch #273: loss=1.205152988433838
+Epoch #274: loss=1.23111093044281
+Epoch #275: loss=1.1850475072860718
+Epoch #276: loss=2.0031118392944336
+Epoch #277: loss=1.0747883319854736
+Epoch #278: loss=1.056397557258606
+Epoch #279: loss=1.3374888896942139
+Epoch #280: loss=0.8710559010505676
+Epoch #281: loss=1.7806577682495117
+Epoch #282: loss=0.354451447725296
+Epoch #283: loss=2.344572067260742
+Epoch #284: loss=1.9098843336105347
+Epoch #285: loss=1.4947378635406494
+Epoch #286: loss=1.9001635313034058
+Epoch #287: loss=0.7507872581481934
+Epoch #288: loss=1.7549309730529785
+Epoch #289: loss=1.9589715003967285
+Epoch #290: loss=0.8661763072013855
+Epoch #291: loss=1.5483489036560059
+Epoch #292: loss=0.9569724202156067
+Epoch #293: loss=0.14995624125003815
+Epoch #294: loss=1.13350510597229
+Epoch #295: loss=2.2520925998687744
+Epoch #296: loss=0.2562580108642578
+Epoch #297: loss=0.6869145035743713
+Epoch #298: loss=1.6922250986099243
+Epoch #299: loss=0.26820117235183716
+Epoch #300: loss=1.4597383737564087
+Epoch #301: loss=1.305275559425354
+Epoch #302: loss=1.1363929510116577
+Epoch #303: loss=1.9742363691329956
+Epoch #304: loss=0.3480285704135895
+Epoch #305: loss=0.6813628673553467
+Epoch #306: loss=1.634230136871338
+Epoch #307: loss=0.3756081461906433
+Epoch #308: loss=0.2461450845003128
+Epoch #309: loss=1.4730474948883057
+Epoch #310: loss=0.5596758723258972
+Epoch #311: loss=0.3780738413333893
+Epoch #312: loss=0.5543810129165649
+Epoch #313: loss=0.15583005547523499
+Epoch #314: loss=2.7980191707611084
+Epoch #315: loss=0.1639256477355957
+Epoch #316: loss=2.0612382888793945
+Epoch #317: loss=0.5826725959777832
+Epoch #318: loss=2.1872451305389404
+Epoch #319: loss=1.9479478597640991
+Epoch #320: loss=1.5033553838729858
+Epoch #321: loss=1.9911080598831177
+Epoch #322: loss=0.4081653952598572
+Epoch #323: loss=1.3545325994491577
+Epoch #324: loss=0.2002793252468109
+Epoch #325: loss=0.7408319711685181
+Epoch #326: loss=1.9551689624786377
+Epoch #327: loss=1.5156900882720947
+Epoch #328: loss=0.07420413196086884
+Epoch #329: loss=0.4563525915145874
+Epoch #330: loss=1.5085541009902954
+Epoch #331: loss=1.9693304300308228
+Epoch #332: loss=0.2484739124774933
+Epoch #333: loss=1.329712986946106
+Epoch #334: loss=0.09374025464057922
+Epoch #335: loss=0.5058529376983643
+Epoch #336: loss=0.1309569776058197
+Epoch #337: loss=1.8988676071166992
+Epoch #338: loss=1.0963315963745117
+Epoch #339: loss=0.251539021730423
+Epoch #340: loss=0.43404725193977356
+Epoch #341: loss=0.270866334438324
+Epoch #342: loss=0.23541301488876343
+Epoch #343: loss=0.515719473361969
+Epoch #344: loss=1.716726541519165
+Epoch #345: loss=0.1576162576675415
+Epoch #346: loss=1.263249158859253
+Epoch #347: loss=0.6741907000541687
+Epoch #348: loss=0.13080397248268127
+Epoch #349: loss=0.25577911734580994
+Epoch #350: loss=1.841130018234253
+Epoch #351: loss=0.9477925300598145
+Epoch #352: loss=1.7561601400375366
+Epoch #353: loss=0.421935498714447
+Epoch #354: loss=1.3024637699127197
+Epoch #355: loss=0.476677268743515
+Epoch #356: loss=0.8869825005531311
+Epoch #357: loss=0.31846800446510315
+Epoch #358: loss=0.27025243639945984
+Epoch #359: loss=0.496099591255188
+Epoch #360: loss=1.6615849733352661
+Epoch #361: loss=0.14762336015701294
+Epoch #362: loss=1.3100937604904175
+Epoch #363: loss=0.484997421503067
+Epoch #364: loss=2.4119839668273926
+Epoch #365: loss=2.0400495529174805
+Epoch #366: loss=0.5903360247612
+Epoch #367: loss=1.9262619018554688
+Epoch #368: loss=1.8989546298980713
+Epoch #369: loss=0.2640972137451172
+Epoch #370: loss=1.1089178323745728
+Epoch #371: loss=1.379660725593567
+Epoch #372: loss=0.11544238030910492
+Epoch #373: loss=0.23454242944717407
+Epoch #374: loss=0.1126469224691391
+Epoch #375: loss=0.20653226971626282
+Epoch #376: loss=0.5005696415901184
+Epoch #377: loss=0.17899376153945923
+Epoch #378: loss=0.8060764074325562
+Epoch #379: loss=1.2070672512054443
+Epoch #380: loss=0.5318189263343811
+Epoch #381: loss=2.186992645263672
+Epoch #382: loss=1.3352783918380737
+Epoch #383: loss=0.16439588367938995
+Epoch #384: loss=0.6955642104148865
+Epoch #385: loss=0.4610648453235626
+Epoch #386: loss=0.9538439512252808
+Epoch #387: loss=0.8839624524116516
+Epoch #388: loss=0.45229828357696533
+Epoch #389: loss=0.9492405652999878
+Epoch #390: loss=0.7286201119422913
+Epoch #391: loss=0.24810326099395752
+Epoch #392: loss=1.7487304210662842
+Epoch #393: loss=0.3807581067085266
+Epoch #394: loss=1.8525865077972412
+Epoch #395: loss=0.26903149485588074
+Epoch #396: loss=0.43353191018104553
+Epoch #397: loss=0.14421135187149048
+Epoch #398: loss=1.686893105506897
+Epoch #399: loss=0.7240777611732483
+Epoch #400: loss=0.12123483419418335
+Epoch #401: loss=1.2477521896362305
+Epoch #402: loss=0.06951172649860382
+Epoch #403: loss=0.3692716956138611
+Epoch #404: loss=1.59575617313385
+Epoch #405: loss=2.1494815349578857
+Epoch #406: loss=0.08408578485250473
+Epoch #407: loss=1.1358877420425415
+Epoch #408: loss=2.3025732040405273
+Epoch #409: loss=0.9316335916519165
+Epoch #410: loss=0.5496097803115845
+Epoch #411: loss=1.4575977325439453
+Epoch #412: loss=0.11602628976106644
+Epoch #413: loss=0.5012869834899902
+Epoch #414: loss=1.4770034551620483
+Epoch #415: loss=0.2656823992729187
+Epoch #416: loss=1.2467881441116333
+Epoch #417: loss=1.3546319007873535
+Epoch #418: loss=1.062245488166809
+Epoch #419: loss=0.08693262934684753
+Epoch #420: loss=0.9530890583992004
+Epoch #421: loss=1.0595310926437378
+Epoch #422: loss=0.26242485642433167
+Epoch #423: loss=1.6623233556747437
+Epoch #424: loss=0.15733090043067932
+Epoch #425: loss=0.47168397903442383
+Epoch #426: loss=0.413684219121933
+Epoch #427: loss=1.5095341205596924
+Epoch #428: loss=0.405087411403656
+Epoch #429: loss=0.09306986629962921
+Epoch #430: loss=1.4196491241455078
+Epoch #431: loss=0.14561940729618073
+Epoch #432: loss=0.7189664840698242
+Epoch #433: loss=0.10567490756511688
+Epoch #434: loss=1.2928088903427124
+Epoch #435: loss=0.11334158480167389
+Epoch #436: loss=0.4279273450374603
+Epoch #437: loss=1.9506580829620361
+Epoch #438: loss=1.8896129131317139
+Epoch #439: loss=0.14818012714385986
+Epoch #440: loss=0.10297779738903046
+Epoch #441: loss=1.6636788845062256
+Epoch #442: loss=2.2178378105163574
+Epoch #443: loss=0.14975644648075104
+Epoch #444: loss=0.46722859144210815
+Epoch #445: loss=1.2148382663726807
+Epoch #446: loss=0.7763586044311523
+Epoch #447: loss=0.3712600767612457
+Epoch #448: loss=0.11938901990652084
+Epoch #449: loss=0.20759078860282898
+Epoch #450: loss=0.8316929340362549
+Epoch #451: loss=0.827623188495636
+Epoch #452: loss=1.4373786449432373
+Epoch #453: loss=0.8919739723205566
+Epoch #454: loss=1.5878686904907227
+Epoch #455: loss=0.8343472480773926
+Epoch #456: loss=0.14601805806159973
+Epoch #457: loss=0.37025871872901917
+Epoch #458: loss=0.5200685858726501
+Epoch #459: loss=1.6383570432662964
+Epoch #460: loss=1.8039413690567017
+Epoch #461: loss=0.4578184187412262
+Epoch #462: loss=1.3266949653625488
+Epoch #463: loss=0.15396280586719513
+Epoch #464: loss=1.327285885810852
+Epoch #465: loss=1.0229843854904175
+Epoch #466: loss=1.6347777843475342
+Epoch #467: loss=1.2539571523666382
+Epoch #468: loss=1.6568330526351929
+Epoch #469: loss=1.5525455474853516
+Epoch #470: loss=1.0938595533370972
+Epoch #471: loss=0.1162247508764267
+Epoch #472: loss=0.2347407042980194
+Epoch #473: loss=0.9141727089881897
+Epoch #474: loss=1.9255987405776978
+Epoch #475: loss=0.28405871987342834
+Epoch #476: loss=1.876897931098938
+Epoch #477: loss=1.029792070388794
+Epoch #478: loss=1.6015640497207642
+Epoch #479: loss=1.1950205564498901
+Epoch #480: loss=0.37627530097961426
+Epoch #481: loss=0.5617748498916626
+Epoch #482: loss=0.12151475250720978
+Epoch #483: loss=0.28389662504196167
+Epoch #484: loss=0.9011590480804443
+Epoch #485: loss=0.08743233978748322
+Epoch #486: loss=0.08965311199426651
+Epoch #487: loss=0.5802394151687622
+Epoch #488: loss=0.2399885654449463
+Epoch #489: loss=0.9405264854431152
+Epoch #490: loss=1.5567870140075684
+Epoch #491: loss=0.5204601883888245
+Epoch #492: loss=0.928056001663208
+Epoch #493: loss=0.10255838930606842
+Epoch #494: loss=0.12228628993034363
+Epoch #495: loss=0.8363929390907288
+Epoch #496: loss=1.8193870782852173
+Epoch #497: loss=0.1703745573759079
+Epoch #498: loss=1.0583680868148804
+Epoch #499: loss=0.34591248631477356
+Epoch #500: loss=0.18411573767662048
+Epoch #501: loss=0.1840353161096573
+Epoch #502: loss=0.6384570002555847
+Epoch #503: loss=1.5595287084579468
+Epoch #504: loss=1.037309169769287
+Epoch #505: loss=0.7742670774459839
+Epoch #506: loss=1.9738479852676392
+Epoch #507: loss=0.06272406131029129
+Epoch #508: loss=0.2210184633731842
+Epoch #509: loss=1.0590500831604004
+Epoch #510: loss=1.5148272514343262
+Epoch #511: loss=0.18601372838020325
+Epoch #512: loss=0.5165364742279053
+Epoch #513: loss=1.1974375247955322
+Epoch #514: loss=1.2025225162506104
+Epoch #515: loss=0.9031128883361816
+Epoch #516: loss=0.13053974509239197
+Epoch #517: loss=2.0340681076049805
+Epoch #518: loss=0.5290160179138184
+Epoch #519: loss=1.201930046081543
+Epoch #520: loss=1.9599640369415283
+Epoch #521: loss=0.2022182047367096
+Epoch #522: loss=0.9666150808334351
+Epoch #523: loss=0.09886312484741211
+Epoch #524: loss=0.37174078822135925
+Epoch #525: loss=0.23747518658638
+Epoch #526: loss=0.8630831837654114
+Epoch #527: loss=1.5413578748703003
+Epoch #528: loss=1.9619190692901611
+Epoch #529: loss=1.8497836589813232
+Epoch #530: loss=0.26281464099884033
+Epoch #531: loss=0.8775777220726013
+Epoch #532: loss=1.3606231212615967
+Epoch #533: loss=2.118823766708374
+Epoch #534: loss=2.026670455932617
+Epoch #535: loss=1.516040325164795
+Epoch #536: loss=0.09505654871463776
+Epoch #537: loss=0.29601773619651794
+Epoch #538: loss=0.2021207958459854
+Epoch #539: loss=1.3861863613128662
+Epoch #540: loss=0.18432079255580902
+Epoch #541: loss=1.799072027206421
+Epoch #542: loss=2.201923131942749
+Epoch #543: loss=0.1824362874031067
+Epoch #544: loss=0.750816822052002
+Epoch #545: loss=0.9221276640892029
+Epoch #546: loss=0.23244456946849823
+Epoch #547: loss=1.3986291885375977
+Epoch #548: loss=0.8122137188911438
+Epoch #549: loss=0.8835869431495667
+Epoch #550: loss=0.28023761510849
+Epoch #551: loss=0.09416776895523071
+Epoch #552: loss=0.22470705211162567
+Epoch #553: loss=0.990020751953125
+Epoch #554: loss=0.9007025957107544
+Epoch #555: loss=0.36052149534225464
+Epoch #556: loss=0.1757744997739792
+Epoch #557: loss=1.1242725849151611
+Epoch #558: loss=0.22695952653884888
+Epoch #559: loss=2.024848222732544
+Epoch #560: loss=1.259314775466919
+Epoch #561: loss=0.08171098679304123
+Epoch #562: loss=0.18589162826538086
+Epoch #563: loss=1.7065637111663818
+Epoch #564: loss=0.16498441994190216
+Epoch #565: loss=0.16603483259677887
+Epoch #566: loss=0.06263613700866699
+Epoch #567: loss=0.9267842769622803
+Epoch #568: loss=1.5054723024368286
+Epoch #569: loss=0.08204230666160583
+Epoch #570: loss=0.18534335494041443
+Epoch #571: loss=0.706246554851532
+Epoch #572: loss=0.8375928997993469
+Epoch #573: loss=1.1347450017929077
+Epoch #574: loss=0.6095309257507324
+Epoch #575: loss=0.6269572377204895
+Epoch #576: loss=0.13356836140155792
+Epoch #577: loss=0.6682882308959961
+Epoch #578: loss=0.08560620248317719
+Epoch #579: loss=0.25836214423179626
+Epoch #580: loss=0.43254318833351135
+Epoch #581: loss=0.32509514689445496
+Epoch #582: loss=0.5072304010391235
+Epoch #583: loss=0.2838607430458069
+Epoch #584: loss=1.597739338874817
+Epoch #585: loss=1.4253294467926025
+Epoch #586: loss=0.08946067094802856
+Epoch #587: loss=1.4875667095184326
+Epoch #588: loss=0.29876571893692017
+Epoch #589: loss=0.2103075534105301
+Epoch #590: loss=1.3991628885269165
+Epoch #591: loss=2.095552444458008
+Epoch #592: loss=0.15216609835624695
+Epoch #593: loss=0.06562471389770508
+Epoch #594: loss=1.53691828250885
+Epoch #595: loss=2.145430088043213
+Epoch #596: loss=0.1971942037343979
+Epoch #597: loss=1.5319281816482544
+Epoch #598: loss=0.09882465749979019
+Epoch #599: loss=0.1750859171152115
+
+Training time: 0:04:27.593517
+
+Evaluation result: {'ours': {24: {'norm': {'MSE': 0.5204400225974872, 'MAE': 0.5499183326531427}, 'raw': {'MSE': 12.422189799641878, 'MAE': 2.169766014839603}}, 48: {'norm': {'MSE': 0.5885078899899826, 'MAE': 0.5837542248994567}, 'raw': {'MSE': 13.530571724457582, 'MAE': 2.275912252784659}}, 96: {'norm': {'MSE': 0.6113939589187127, 'MAE': 0.5924955919006832}, 'raw': {'MSE': 14.174751458764238, 'MAE': 2.3115338511295063}}, 288: {'norm': {'MSE': 0.7088039081579056, 'MAE': 0.642595542035251}, 'raw': {'MSE': 16.51673004212985, 'MAE': 2.5144997477965947}}, 672: {'norm': {'MSE': 0.8223187770231978, 'MAE': 0.696859347514261}, 'raw': {'MSE': 18.453150449856842, 'MAE': 2.684171767466273}}}, 'encoder_infer_time': 17.289681434631348, 'lr_train_time': {24: 4.514408826828003, 48: 5.5135931968688965, 96: 7.211454153060913, 288: 15.749297380447388, 672: 38.06448936462402}, 'lr_infer_time': {24: 0.041600942611694336, 48: 0.037995100021362305, 96: 0.0735480785369873, 288: 0.15387892723083496, 672: 0.32308340072631836}}
+Finished.
