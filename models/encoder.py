@@ -4,6 +4,7 @@ import paddle
 from paddle import nn
 import paddle.fft as fft
 import numpy as np
+from paddle.nn.initializer import KaimingUniform
 from .dilated_conv import DilatedConvEncoder
 
 
@@ -43,7 +44,7 @@ def calculate_fan_in_and_fan_out(tensor):
 
 
 class BandedFourierLayer(nn.Layer):
-    def __init__(self, in_channels, out_channels, band, num_bands, length=201,
+    def __init__(self, in_channels, out_channels, band=1, num_bands=1, length=201,
                  device=paddle.set_device("cpu"), name='0'):
         super().__init__()
 
@@ -52,49 +53,49 @@ class BandedFourierLayer(nn.Layer):
 
         self.in_channels = in_channels
         self.out_channels = out_channels
-
-        self.band = band  # zero indexed
-        self.num_bands = num_bands
         self.device = device
 
-        self.num_freqs = self.total_freqs // self.num_bands + \
-                         (self.total_freqs % self.num_bands if self.band == self.num_bands - 1 else 0)
+        weight_shape = [self.total_freqs, in_channels, out_channels, 2]
+        weight_attr = paddle.ParamAttr(initializer=paddle.nn.initializer.KaimingUniform())
+        self._weight = self.create_parameter(weight_shape, weight_attr)
 
-        self.start = self.band * (self.total_freqs // self.num_bands)
-        self.end = self.start + self.num_freqs
-
-        # case: from other frequencies
-        weight_attr = paddle.framework.ParamAttr(
-            name="linear_weight_{}".format(name), initializer=paddle.nn.initializer.KaimingUniform())
-        self.weight = self.create_parameter(
-            shape=[self.num_freqs, in_channels, out_channels],
-            attr=weight_attr,
-            dtype=paddle.float32,
-            is_bias=False)
-        fan_in, _ = calculate_fan_in_and_fan_out(self.weight)
+        bias_shape = [self.total_freqs, out_channels, 2]
+        fan_in, _ = calculate_fan_in_and_fan_out(self._weight)
         bound = 1 / math.sqrt(fan_in) if fan_in > 0 else 0
-        bias_attr = paddle.framework.ParamAttr(
-            name="linear_bias_{}".format(name),
-            initializer=paddle.nn.initializer.Uniform(low=-bound, high=bound))
-        self.bias = self.create_parameter(
-            shape=[self.num_freqs, out_channels],
-            attr=bias_attr,
-            dtype=paddle.float32,
-            is_bias=True)
+        bias_attr = paddle.ParamAttr(initializer=paddle.nn.initializer.Uniform(low=-bound, high=bound))
+        self._bias = self.create_parameter(bias_shape, bias_attr, is_bias=True)
 
     def forward(self, input):
-        # input - b t d
-        b, t, _ = input.shape
-        input_fft = fft.rfft(input, axis=1)
-        # output_fft = paddle.zeros((b, t // 2 + 1, self.out_channels), dtype=paddle.complex64)
-        tmp = self._forward(input_fft)
-        # print(0, self.start, self.end, output_fft.shape, tmp.shape)
-        # output_fft[:, self.start:self.end] = tmp
-        return fft.irfft(tmp, n=input.shape[1], axis=1)
+        # input - (B, t, C)
+        input = input.transpose((0, 2, 1))  # (B, C, t)
+        batch_size, _, seq_len = input.shape
+        out = paddle.fft.rfft(input, axis=-1)           # [B, C, t // 2 + 1]
+        out = paddle.transpose(out, perm=[2, 0, 1])     # [t // 2 + 1, B, C]
+        out = paddle.matmul(out, paddle.as_complex(self._weight))  # [t // 2 + 1, C, out] -> [t // 2 + 1, B, out]
+        out = paddle.transpose(out, perm=[1, 0, 2])  # [B, t // 2 + 1, out]
+        out = out + paddle.as_complex(self._bias)  # [B, t // 2 + 1, out]
+        out = paddle.transpose(out, perm=[0, 2, 1])  # [B, out, t // 2 + 1]
+        out = paddle.fft.irfft(out, seq_len, axis=-1)  # [B, out, t]
+        out = out.transpose((0, 2, 1))  # (B, t, out)
+        return out
 
-    def _forward(self, input):
-        output = paddle.einsum('bti,tio->bto', input[:, self.start:self.end], self.weight)
-        return output + self.bias
+
+def paddle_mask_fill(
+    tensor: paddle.Tensor,
+    mask: paddle.Tensor,
+    value: float
+) -> paddle.Tensor:
+    """Fills elements of tensor with value where mask is True.
+    Args:
+        tensor(paddle.Tensor): The tensor to be masked.
+        mask(paddle.Tensor): The boolean mask.
+        value(float): The value to fill in with.
+    Returns:
+        paddle.Tensor: Output of function.
+    """
+    mask = paddle.expand_as(mask[:, :, None], tensor)
+    cache = paddle.full(tensor.shape, value, tensor.dtype)
+    return paddle.where(mask, cache, tensor)
 
 
 class CoSTEncoder(nn.Layer):
@@ -103,8 +104,7 @@ class CoSTEncoder(nn.Layer):
                  length: int,
                  hidden_dims=64, depth=10,
                  mask_mode='binomial',
-                 device=paddle.set_device("cpu"),
-                 name='0'):
+                 device=paddle.set_device("cpu")):
         super().__init__()
 
         component_dims = output_dims // 2
@@ -116,7 +116,15 @@ class CoSTEncoder(nn.Layer):
         self.mask_mode = mask_mode
         self.device = device
 
-        self.input_fc = nn.Linear(input_dims, hidden_dims)
+        k = np.sqrt(1. / input_dims)
+        weight_attr = bias_attr = paddle.ParamAttr(
+            initializer=paddle.nn.initializer.Uniform(-k, k)
+        )
+        self.input_fc = nn.Linear(
+            input_dims, hidden_dims,
+            weight_attr=weight_attr,
+            bias_attr=bias_attr,
+        )
 
         self.feature_extractor = DilatedConvEncoder(
             hidden_dims,
@@ -134,12 +142,14 @@ class CoSTEncoder(nn.Layer):
 
         self.sfd = nn.LayerList(
             [BandedFourierLayer(output_dims, component_dims, b, 1,
-                                length=length, name=name, device=self.device) for b in range(1)]
+                                length=length, device=self.device) for b in range(1)]
         )
 
     def forward(self, x, tcn_output=False, mask='all_true'):  # x: B x T x input_dims
-        nan_mask = ~x.isnan().any(axis=-1)
+        # nan_mask = ~x.isnan().any(axis=-1)
         # x[~nan_mask] = 0
+        nan_mask = paddle.any(paddle.isnan(x), -1)
+        x = paddle_mask_fill(x, nan_mask, 0)
 
         x = self.input_fc(x)  # B x T x Ch
         # generate & apply mask
@@ -162,7 +172,8 @@ class CoSTEncoder(nn.Layer):
             mask[:, -1] = False
 
         mask &= nan_mask
-        x[~mask] = 0
+        x = paddle_mask_fill(x, ~mask, 0)
+        # x[~mask] = 0
 
         # conv encoder
         x = x.transpose((0, 2, 1))  # B x Ch x T

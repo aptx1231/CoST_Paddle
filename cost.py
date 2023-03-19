@@ -257,14 +257,14 @@ class CoST:
             input_dims=input_dims, output_dims=output_dims,
             kernels=kernels,
             length=max_train_length,
-            hidden_dims=hidden_dims, depth=depth, name='k',
+            hidden_dims=hidden_dims, depth=depth,
         ).to(self.device)
 
         self.net_k = CoSTEncoder(
             input_dims=input_dims, output_dims=output_dims,
             kernels=kernels,
             length=max_train_length,
-            hidden_dims=hidden_dims, depth=depth, name='q',
+            hidden_dims=hidden_dims, depth=depth,
         ).to(self.device)
 
         self.cost = CoSTModel(

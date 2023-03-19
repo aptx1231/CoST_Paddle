@@ -1,5 +1,6 @@
 import paddle
 from paddle import nn
+import numpy as np
 import paddle.nn.functional as F
 
 
@@ -8,13 +9,23 @@ class SamePadConv(nn.Layer):
         super().__init__()
         self.receptive_field = (kernel_size - 1) * dilation + 1
         padding = self.receptive_field // 2
+        k = np.sqrt(1. / (in_channels * kernel_size))
+        weight_attr = bias_attr = paddle.ParamAttr(
+            initializer=paddle.nn.initializer.Uniform(-k, k)
+        )
         self.conv = nn.Conv1D(
-            in_channels, out_channels, kernel_size,
+            in_channels=in_channels,
+            out_channels=out_channels,
+            kernel_size=kernel_size,
             padding=padding,
             dilation=dilation,
-            groups=groups
+            groups=groups,
+            weight_attr=weight_attr,
+            bias_attr=bias_attr,
         )
-        self.remove = 1 if self.receptive_field % 2 == 0 else 0
+        self.remove = (
+            1 if self.receptive_field % 2 == 0 else 0
+        )
         
     def forward(self, x):
         out = self.conv(x)
@@ -28,8 +39,18 @@ class ConvBlock(nn.Layer):
         super().__init__()
         self.conv1 = SamePadConv(in_channels, out_channels, kernel_size, dilation=dilation)
         self.conv2 = SamePadConv(out_channels, out_channels, kernel_size, dilation=dilation)
-        self.projector = nn.Conv1D(in_channels, out_channels, 1) if in_channels != out_channels or final else None
-    
+        k = np.sqrt(1. / (in_channels * 1))
+        weight_attr = bias_attr = paddle.ParamAttr(
+            initializer=paddle.nn.initializer.Uniform(-k, k)
+        )
+        self.projector = (
+            paddle.nn.Conv1D(
+                in_channels, out_channels, 1,
+                weight_attr=weight_attr,
+                bias_attr=bias_attr
+            ) if (in_channels != out_channels or final) else None
+        )
+
     def forward(self, x):
         residual = x if self.projector is None else self.projector(x)
         x = F.gelu(x)
